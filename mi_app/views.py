@@ -1,4 +1,6 @@
-from django.shortcuts import render  # Reemplaza la importación de HttpResponse
+from django.shortcuts import render
+from .models import Proyectos
 
 def home(request):
-    return render(request, 'mi_app/index.html')  # Renderiza la plantilla
+    proyectos_visible = Proyectos.objects.all()  # Obtiene todos los proyectos
+    return render(request, 'mi_app/index.html', {'proyectos_visible': proyectos_visible})

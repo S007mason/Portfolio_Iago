@@ -1,11 +1,4 @@
-from django.shortcuts import render
-from .models import Proyectos
+from django.shortcuts import render  # Reemplaza la importación de HttpResponse
 
 def home(request):
-    proyectos_visible = Proyectos.objects.all()  # Obtiene todos los proyectos
-
-    # Si no hay proyectos, se envía None o un mensaje vacío
-    if not proyectos_visible.exists():
-        proyectos_visible = None  # También puedes enviar []
-
-    return render(request, 'mi_app/index.html', {'proyectos_visible': proyectos_visible})
+    return render(request, 'mi_app/index.html')  # Renderiza la plantilla
